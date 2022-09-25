@@ -6,7 +6,18 @@ public class SelectionManager : MonoBehaviour
 {
     public Material MaterialOutline;
     public Material MaterialDefault;
+    public GameUI UI;
+
     Character _selectedCharacter;
+
+    enum SelectionMode
+    {
+        Default,
+        Attack
+    }
+
+    SelectionMode _currentMode = SelectionMode.Default;
+
 
     public void Update()
     {
@@ -21,15 +32,30 @@ public class SelectionManager : MonoBehaviour
 
                 if (character != null)
                 {
-                    if(_selectedCharacter != null)
+                    if(_currentMode == SelectionMode.Default)
                     {
-                        _selectedCharacter.Visual.material = MaterialDefault;
-                    }
+                        if (_selectedCharacter != null)
+                            _selectedCharacter.Visual.material = MaterialDefault;
 
-                    _selectedCharacter = character;
-                    character.Visual.material = MaterialOutline;
+
+                        _selectedCharacter = character;
+                        character.Visual.material = MaterialOutline;
+                        UI.SetCharacter(character);
+                    }
+                    else
+                    {
+                        _selectedCharacter.Attack(character);
+                    }
                 }
             }
         }
+    }
+
+    public void SetAttackMode()
+    {
+        if (_selectedCharacter == null)
+            return;
+
+        _currentMode = SelectionMode.Attack;
     }
 }

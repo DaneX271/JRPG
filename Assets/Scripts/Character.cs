@@ -9,5 +9,18 @@ public class Character : MonoBehaviour
 
     public SpriteRenderer Visual;
 
+    public Animator Animator;
+
     public int Life = 100;
+
+    internal void Attack(Character defender)
+    {
+        Animator.SetTrigger("attack");
+        defender.Hit();
+    }
+
+    internal void Hit()
+    {
+        Animator.SetTrigger("hit");
+    }
 }

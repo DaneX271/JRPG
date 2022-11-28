@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WarriorIdle
+  m_Name: WarriorAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -55,10 +55,10 @@ AnimationClip:
       value: {fileID: 530488622, guid: 9e47e7cb3b0395644a27393d3b4edd88, type: 3}
     - time: 1
       value: {fileID: 1953206127, guid: 9e47e7cb3b0395644a27393d3b4edd88, type: 3}
-    attribute: SpritePortrait
+    attribute: m_Sprite
     path: 
-    classID: 114
-    script: {fileID: 11500000, guid: 34640dd6769dea343b06d3c4ef330298, type: 3}
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -68,10 +68,10 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 865023006
-      script: {fileID: 11500000, guid: 34640dd6769dea343b06d3c4ef330298, type: 3}
-      typeID: 114
-      customType: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -1557747113, guid: 9e47e7cb3b0395644a27393d3b4edd88, type: 3}

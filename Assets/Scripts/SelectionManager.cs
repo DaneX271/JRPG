@@ -2,21 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum SelectionMode
+{
+    Default,
+    Attack
+}
+
 public class SelectionManager : MonoBehaviour
 {
     public Material MaterialOutline;
     public Material MaterialDefault;
     public GameUI UI;
+    public AudioClip Clip;
 
     Character _selectedCharacter;
 
-    enum SelectionMode
-    {
-        Default,
-        Attack
-    }
-
     SelectionMode _currentMode = SelectionMode.Default;
+
+    public void Start()
+    {
+        AudioManager.Instance.PlayMusic(Clip);
+    }
 
 
     public void Update()
@@ -45,6 +51,9 @@ public class SelectionManager : MonoBehaviour
                     else
                     {
                         _selectedCharacter.Attack(character);
+                        _currentMode = SelectionMode.Default;
+                        _selectedCharacter.Visual.material = MaterialDefault;
+                        _selectedCharacter = null;
                     }
                 }
             }
